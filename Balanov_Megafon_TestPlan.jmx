@@ -255,10 +255,20 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="phoneId">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">phoneId</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;ID&quot;:(\S[0-9]*)</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">error</stringProp>
+            <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="cityId">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">cityId</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;eshop_city_id&quot;:(\S[0-9]*)</stringProp>
             <stringProp name="RegexExtractor.template">$1$</stringProp>
             <stringProp name="RegexExtractor.default">error</stringProp>
             <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
@@ -355,14 +365,14 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="orderId">
             <stringProp name="JSONPostProcessor.referenceNames">orderId</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$..orderId</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">error</stringProp>
           </JSONPostProcessor>
           <hashTree/>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor">
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="clientId">
             <stringProp name="JSONPostProcessor.referenceNames">clientId</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$..clientId</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
@@ -587,7 +597,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="modemId">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">modemId</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;ID&quot;:(\S[0-9]*)</stringProp>
@@ -771,7 +781,7 @@
             </collectionProp>
           </HeaderManager>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="phonePosition">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">phonePosition</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;id&quot;:${phoneId}[\s\S]*?&quot;position&quot;:\s*([0-9]*)</stringProp>
@@ -781,7 +791,7 @@
             <stringProp name="RegexExtractor.match_number">0</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="modemPosition">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">modemPosition</stringProp>
             <stringProp name="RegexExtractor.regex">&quot;id&quot;:${modemId}[\s\S]*?&quot;position&quot;:\s*([0-9]*)</stringProp>
@@ -808,7 +818,7 @@
           <stringProp name="HTTPSampler.domain">${server_name}</stringProp>
           <stringProp name="HTTPSampler.port">${port_number}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/public-api/checkout/v2/order/${phoneId}/basket/${phonePosition}/remove?clientId=${clientId}&amp;cityId=1817</stringProp>
+          <stringProp name="HTTPSampler.path">/public-api/checkout/v2/order/${phoneId}/basket/${phonePosition}/remove?clientId=${clientId}&amp;cityId=${cityId}</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">DELETE</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
